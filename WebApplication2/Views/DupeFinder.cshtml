@@ -8,12 +8,23 @@
     <title>Поиск дублей</title>
 </head>
 <body>
-    @using (Html.BeginForm("Dupes","Base"))
+    @using (Html.BeginForm("Dupes", "Base"))
     {
-        @Html.TextArea("STR1");
-        <p></p>
-        @Html.TextBox("STR2")
+        <body>
+            Первая строка:
+            <p></p>
+            @Html.TextArea("STR1")
+            <p></p>
+            Вторая строка:
+            <p></p>
+            @Html.TextArea("STR2")
+            <p></p>
+            Разделитель:
+            <p></p>
+        </body>
+        @Html.TextBox("delim")
         <input type="submit" name="send" value="Найти дубли">
-        }
+        
+    }
 
 </body>

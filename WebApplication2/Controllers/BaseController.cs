@@ -14,15 +14,17 @@ namespace WebApplication2.Controllers
             return View("Views/Index.cshtml");
         }
         [Route("Dupes")]
-        public IActionResult DupeFinder()
+        public IActionResult Dupe()
         {
             return View("views/DupeFinder.cshtml");
         }
 
         [Route("/Dupes/find")]
-        public IActionResult Dupes(string STR1,string STR2)
+        [HttpPost]
+        public string Dupes(string STR1,string STR2,string delim)
         {
-            return Ok();
+            return DupeFinder.Find(STR1, STR2, delim);
+            
         }
     }
 }
