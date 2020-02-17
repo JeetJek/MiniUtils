@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "DupeFinder";
+}
+
+    <h2>Поиск дублей</h2>
+<head>
+    <title>Поиск дублей</title>
+</head>
+<body>
+    @using (Html.BeginForm("Dupes","Base"))
+    {
+        @Html.TextArea("STR1");
+        <p></p>
+        @Html.TextBox("STR2")
+        <input type="submit" name="send" value="Найти дубли">
+        }
+
+</body>
