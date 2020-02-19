@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication2.Controllers
 {
@@ -20,11 +16,10 @@ namespace WebApplication2.Controllers
         }
 
         [Route("/Dupes/find")]
-        [HttpPost]
-        public string Dupes(string STR1,string STR2,string delim)
+        public ViewResult Dupes(string STR1,string STR2,string delim)
         {
-            return DupeFinder.Find(STR1, STR2, delim);
-            
+            ViewBag.Head = DupeFinder.Find(STR1, STR2, delim);
+            return View("~/Views/DupeFinderResult.cshtml");
         }
     }
 }

@@ -15,47 +15,42 @@ namespace WebApplication2
             {
                 str += delim;
             }
+            string word;
             while (i < str.Length)
             {
-                list.Add(str.Substring(i, str.IndexOf(delim,i) - i));
-                i=str.IndexOf(delim, i) +delim.Length;
+                word = str.Substring(i, str.IndexOf(delim, i) - i);
+                if (word != "")
+                {
+                    list.Add(word);
+                    i = str.IndexOf(delim, i);
+                }
+                else
+                    i++;
+                
             }
             return list;
         }
+        //1 2 3 4 5 6
+        //5 5 7 8 9 0
         public static string Find(string str1,string str2,string delim)
         {
             if (delim == null)
                 delim = " ";
-            List<string> list1=Split(str1, delim);
-            Console.WriteLine();
-            List<String> list = new List<string>();
-            list.Add(list1[0]);
-            Console.Write(list1[0] + " ");
-            int j2;
-            bool have;
-            string Output = "";
-            for (int i = 1; i < list1.Count; i++)
-            {
-                j2 = list.Count;
-                have = false;
-                for (int j = 0; j < j2; j++)
-                {
-                    if (list1[i] != list[j])
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                        have = false;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        have = true;
-                        break;
-                    }
+            List<string> list1 = Split(str1, delim);
+            List<string> list2 = Split(str2, delim);
 
+            for (int i = 0; i < list1.Count; i++)
+            {
+                for (int j = 0; j < list2.Count; j++)
+                {
+                    
                 }
-                if (!have)
-                    list.Add(list1[i]);
-                Output = Output + "<tr>"+list1[i] + "</tr> ";
+            }
+
+            String Output="";
+            foreach (string str in list1)
+            {
+                Output = Output + "<tr><td>"+str + "</td></tr> ";
             }
             Output = "<table>" + Output + "</table>";
             return Output;
